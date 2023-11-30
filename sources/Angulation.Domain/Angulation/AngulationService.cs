@@ -2,7 +2,7 @@
 
 public class AngleCalculationSerice : IAngulationService
 {
-    public TriangleTypes GetTriangleType(TriangleModel triangle)
+    public TriangleType GetTriangleType(TriangleModel triangle)
     {
         var maxSide = Math.Max(triangle.SideA, Math.Max(triangle.SideB, triangle.SideC));
 
@@ -12,11 +12,11 @@ public class AngleCalculationSerice : IAngulationService
         var angles = GetAngles(triangle.SideA, triangle.SideB, triangle.SideC);
 
         if (angles.Any(x => x > 90))
-            return TriangleTypes.Obtuse;
+            return TriangleType.Obtuse;
         if (angles.Any(x => x == 90))
-            return TriangleTypes.Right;
+            return TriangleType.Right;
 
-        return TriangleTypes.Acute;
+        return TriangleType.Acute;
     }
 
     private IReadOnlyCollection<double> GetAngles(double a, double b, double c)
