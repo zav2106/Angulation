@@ -2,6 +2,8 @@
 
 public class AngleCalculationSerice : IAngulationService
 {
+    private const double RightAngleCalculationAccuracy = 0.001;
+
     public TriangleType GetTriangleType(TriangleModel triangle)
     {
         var maxSide = Math.Max(triangle.SideA, Math.Max(triangle.SideB, triangle.SideC));
@@ -11,9 +13,11 @@ public class AngleCalculationSerice : IAngulationService
 
         var angles = GetAngles(triangle.SideA, triangle.SideB, triangle.SideC);
 
+        triangle.SideA.CompareTo(90.0);
+
         if (angles.Any(x => x > 90.0))
             return TriangleType.Obtuse;
-        if (angles.Any(x => x.Equals(90.0)))
+        if (angles.Any(x => Math.Abs(x - 90.0) < RightAngleCalculationAccuracy))
             return TriangleType.Right;
 
         return TriangleType.Acute;
