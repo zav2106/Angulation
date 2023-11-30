@@ -15,6 +15,7 @@ public class AngleCalculationSerice : IAngulationService
 
         if (angles.Any(x => Math.Abs(x - 90.0) < RightAngleCalculationAccuracy))
             return TriangleType.Right;
+
         if (angles.Any(x => x > 90.0))
             return TriangleType.Obtuse;
 
