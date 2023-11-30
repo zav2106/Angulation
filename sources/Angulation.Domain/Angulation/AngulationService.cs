@@ -2,14 +2,14 @@
 
 public class AngleCalculationSerice : IAngulationService
 {
-    public TriangleTypes CheckAngle(TriangleModel triangle)
+    public TriangleTypes GetTriangleType(TriangleModel triangle)
     {
         var maxSide = Math.Max(triangle.SideA, Math.Max(triangle.SideB, triangle.SideC));
 
         if (maxSide > triangle.SideA + triangle.SideB + triangle.SideC - maxSide)
             throw new Exception("Данные отрезки не могут образовать треугольник");
 
-        var angles = GetAngulation(triangle.SideA, triangle.SideB, triangle.SideC);
+        var angles = GetAngles(triangle.SideA, triangle.SideB, triangle.SideC);
 
         if (angles.Any(x => x > 90))
             return TriangleTypes.Obtuse;
@@ -19,7 +19,7 @@ public class AngleCalculationSerice : IAngulationService
         return TriangleTypes.Acute;
     }
 
-    private IReadOnlyCollection<double> GetAngulation(double a, double b, double c)
+    private IReadOnlyCollection<double> GetAngles(double a, double b, double c)
     {
         var aSquare = a * a;
         var bSquare = b * b;

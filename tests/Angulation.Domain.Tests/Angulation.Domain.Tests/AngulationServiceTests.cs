@@ -17,7 +17,7 @@ public class AngulationServiceTests
         rightAngleTriangle.SideC = 3;
 
         // Act
-        var result = angulationService.CheckAngle(rightAngleTriangle);
+        var result = angulationService.GetTriangleType(rightAngleTriangle);
 
         // Assert
         result.Should().Be(TriangleTypes.Right);
@@ -34,7 +34,7 @@ public class AngulationServiceTests
         acuteTriangle.SideC = 10;
 
         // Act
-        var result = angulationService.CheckAngle(acuteTriangle);
+        var result = angulationService.GetTriangleType(acuteTriangle);
 
         // Assert
         result.Should().Be(TriangleTypes.Acute);
@@ -51,7 +51,7 @@ public class AngulationServiceTests
         obtuseTriangle.SideC = 3;
 
         // Act
-        var result = angulationService.CheckAngle(obtuseTriangle);
+        var result = angulationService.GetTriangleType(obtuseTriangle);
 
         // Assert
         result.Should().Be(TriangleTypes.Obtuse);

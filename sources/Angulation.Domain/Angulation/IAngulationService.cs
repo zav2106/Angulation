@@ -2,5 +2,5 @@
 
 public interface IAngulationService
 {
-    TriangleTypes CheckAngle(TriangleModel triangle);
+    TriangleTypes GetTriangleType(TriangleModel triangle);
 }
