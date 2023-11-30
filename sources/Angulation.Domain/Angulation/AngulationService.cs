@@ -15,10 +15,10 @@ public class AngleCalculationSerice : IAngulationService
 
         triangle.SideA.CompareTo(90.0);
 
-        if (angles.Any(x => x > 90.0))
-            return TriangleType.Obtuse;
         if (angles.Any(x => Math.Abs(x - 90.0) < RightAngleCalculationAccuracy))
             return TriangleType.Right;
+        if (angles.Any(x => x > 90.0))
+            return TriangleType.Obtuse;
 
         return TriangleType.Acute;
     }
