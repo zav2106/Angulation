@@ -46,9 +46,9 @@ public class AngulationServiceTests
         // Arrange
         var angulationService = new AngleCalculationSerice();
         var obtuseTriangle = new TriangleModel();
-        obtuseTriangle.SideA = 6;
-        obtuseTriangle.SideB = 4;
-        obtuseTriangle.SideC = 3;
+        obtuseTriangle.SideA = 6.1;
+        obtuseTriangle.SideB = 4.1;
+        obtuseTriangle.SideC = 3.1;
 
         // Act
         var result = angulationService.GetTriangleType(obtuseTriangle);

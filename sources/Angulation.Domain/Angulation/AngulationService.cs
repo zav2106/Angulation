@@ -11,9 +11,9 @@ public class AngleCalculationSerice : IAngulationService
 
         var angles = GetAngles(triangle.SideA, triangle.SideB, triangle.SideC);
 
-        if (angles.Any(x => x > 90))
+        if (angles.Any(x => x > 90.0))
             return TriangleType.Obtuse;
-        if (angles.Any(x => x == 90))
+        if (angles.Any(x => x.Equals(90.0)))
             return TriangleType.Right;
 
         return TriangleType.Acute;
