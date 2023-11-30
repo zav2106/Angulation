@@ -13,8 +13,6 @@ public class AngleCalculationSerice : IAngulationService
 
         var angles = GetAngles(triangle.SideA, triangle.SideB, triangle.SideC);
 
-        triangle.SideA.CompareTo(90.0);
-
         if (angles.Any(x => Math.Abs(x - 90.0) < RightAngleCalculationAccuracy))
             return TriangleType.Right;
         if (angles.Any(x => x > 90.0))
